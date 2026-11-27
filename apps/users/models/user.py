@@ -6,14 +6,13 @@ from apps.base.models import TimeStampModel
 
 
 class User(AbstractUser, TimeStampModel):
-    username = None
     email = models.EmailField(
         verbose_name='Email address',
         unique=True,
     )
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     class Meta(AbstractUser.Meta):
         db_table = 'users'
